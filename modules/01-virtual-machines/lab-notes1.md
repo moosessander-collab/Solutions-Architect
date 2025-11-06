@@ -18,3 +18,8 @@ Username - azurehermit
 The rest - left default
 5. Since the goal was to simply create a virtual machine then no other tabs needed to be specified so I went ahead and hit "Review + create"
 6. Waited for Validation of VM which took around 30sec, went ahead and pressed "Create"
+7. VM deployment took around 20 sec, deployment complete
+
+No issues in creating the VM since it is pretty straight forward and this is pretty basic.
+
+After the VM was successfully deployed
