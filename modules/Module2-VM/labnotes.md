@@ -1,4 +1,4 @@
-# Virtual Machines - Lab Notes
+# Virtual machine creating and Nginx installation - Lab Notes
 # Module: Describe the core architectural components of Azure
 
 Goal: 
