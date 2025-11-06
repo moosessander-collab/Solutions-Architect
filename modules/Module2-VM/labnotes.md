@@ -29,9 +29,16 @@ az vm create
 --admin-username virtualhermit  
 --generate-ssh-keys
 ```
-2. Ran into the following error
+2. Ran into the error and fixed it
 
 ```CLI
 Message: The requested VM size for resource 'Following SKUs have failed for Capacity Restrictions: Standard_D2s_v5' is currently not available in location 'eastus'. Please try another size or deploy to a different location or different zone. See https://aka.ms/azureskunotavailable for details.
 ```
 We can read from this that SKU Standard_D2s_v5 is unavailable in US east region. So for a workaround I decided to deviate from the learn path and instead use the region closest to me which was to be Norway East.
+But before I continued I needed to delete the group I created prior.
+
+To do that I used the following command
+```CLI
+az group delete --name MinuVirtukas
+```
+
