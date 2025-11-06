@@ -1,8 +1,9 @@
 # Virtual Machines - Lab Notes
 # Module: Describe the core architectural components of Azure
 
-##Goal: Create a virtual machine in Microsoft Azure
-##Why is this important? VM deployment is the foundation for IaaS workloads
+Goal: Create a virtual machine in Microsoft Azure
+
+Why is this important? VM deployment is the foundation for IaaS workloads
 
 ## Steps I took
 1. Made a trial account for Microsoft Azure
