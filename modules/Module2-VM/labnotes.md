@@ -9,7 +9,11 @@ Why is this important?
 Task 1: Create a resource group using Cloud shell
 1. Logged into Azure and opened up Cloud shell (Azure CLI)
 2. Opened up Cloud shell from the top right corner next to your profile and typed in:
-    az group create --name MinuVirtukas --location eastus
+
+az group create 
+--name MinuVirtukas 
+--location eastus
+
 3. With that we created a resource group named MinuVirtukas (see 1.png)
 
 Task 2: Create a Linux virtual machine
