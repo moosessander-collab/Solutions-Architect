@@ -10,7 +10,7 @@ Task 1: Create a resource group using Cloud shell
 1. Logged into Azure and opened up Cloud shell (Azure CLI)
 2. Opened up Cloud shell from the top right corner next to my profile and typed in:
 
-```CLI
+```bash
 az group create 
 --name MinuVirtukas 
 --location eastus
@@ -19,7 +19,7 @@ az group create
 
 Task 2: Create a Linux virtual machine
 1. From the cloud shell I ran the command "az vm create" command to create Linux VM:
-```CLI
+```bash
 az vm create
 --resource-group MinuVirtukas  
 --name my-vm  
@@ -31,7 +31,7 @@ az vm create
 ```
 2. Ran into the error and fixed it
 
-```CLI
+```bash
 Message: The requested VM size for resource 'Following SKUs have failed for Capacity Restrictions: Standard_D2s_v5' is currently not available in location 'eastus'. Please try another size or deploy to a different location or different zone. See https://aka.ms/azureskunotavailable for details.
 ```
 I could read from this that SKU Standard_D2s_v5 is unavailable in US east region. So for a workaround I decided to deviate from the learn path and instead use the region closest to me which was to be Norway East.
@@ -44,7 +44,7 @@ az group delete --name MinuVirtukas
 Before I reverted back to task1 commandline I needed to know whether norway east region had the SKU needed to perform the task, and if not the exact same one as described in the learning path then at least an alternative that would work. The learning path wanted me to use Standard_D2s_v5 so I had to keep in mind that it either needed to be exact same or at least Standard_D
 
 To do that I used the command line
-```CLI
+```bash
 az vm list-skus --location norwayeast --output table
 ```
 This command gave me an output of all the available SKUS in norwayeast region and in it I could see which ones I could use and which ones I couldn't due to subsrciption restrictions. See [skulist.png](../screenshots/skulist.PNG)
@@ -53,11 +53,11 @@ This command gave me an output of all the available SKUS in norwayeast region an
 However the list was a bit too long and uneasy for the eyes for me to properly filter out, additionally it showed me all the SKUs but I needed Standard_D2s speficically. 
 
 So a bit of googling and forum reading I found a commandline that would filter out all the available SKUs available in the region.
-```CLI
+```bash
 az vm list-skus --location centralus --size Standard_D --all --output table
 ```
 However I modified the commandline to filter out specifically Standard_D2s and additionally to leave out all the SKUs that werent available for my subscription
-```CLI
+```bash
 az vm list-skus --location norwayeast --size Standard_D2s --all false --output table
 ```
 With that commandline I managed to go from 100s of rows to pick from to just 4 See [filteredskus.png](../screenshots/filteredskus.PNG)
@@ -67,11 +67,11 @@ The end result was that Standard_D2s_v5 was in fact available in this region but
 Task 2: Create a Linux VM
 
 Went back to task 1  and created a new resource group again, this time with a region that had the SKU that I needed
-```CLI
+```bash
 az group create --name MinuVirtukas --location norwayeast
 ```
 4. Once the region was set and resource group created, I went and created the VM itself
-```CLI
+```bash
 az vm create
 --resource-group MinuVirtukas
 --name minu-virtukas
@@ -87,7 +87,7 @@ With that out of the way I could move on and install Nginx See [VMcreation.png](
 Task 3: Install Nginx
 
 Once I had my VM created I needed to use Custom script extension to install Nginx. For that we needed to run az vm extension set command to configure Nginx to my VM
-```CLI
+```bash
 az vm extension set
 --resource-group MinuVirtukas
 --vm-name minu-virtukas
