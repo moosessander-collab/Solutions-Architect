@@ -8,6 +8,8 @@ Goal: In this exercise I needed to configure network access to the Virtual machi
 ### Task 1: Accessing my web server
 
 1. For starters I need to access web server that I had installed prior to this exercise. To start things off I used ```az vm list-ip-addresses``` command to get my VMs IP address and store the result as a Bash variable:
+
+#### Command
 ```bash
 IPADDRESS="$(az vm list-ip-addresses \
 --resource-group "MinuVirtukas" \
@@ -20,6 +22,8 @@ IPADDRESS="$(az vm list-ip-addresses \
 After fixing my GRAVE error the command went through [fix.png](../screenshots/fix.PNG)
 
 3. Now I needed to download the home page to see if the VM is reachable and whether I could access the webserver (Spoiler alert it wasnt and I couldnt for obvious reasons):
+
+### Command
 ```bash
 curl --connect-timeout 5 http://$IPADDRESS
 ```
@@ -93,7 +97,7 @@ az network nsg rule create \
 
 Output: [nsgrule.png](../screenshots/nsgrule.PNG) 
 
-Then I wanted to verify the configuration 
+Then I wanted to verify the configuration by using the same command I used u
 
 
 
