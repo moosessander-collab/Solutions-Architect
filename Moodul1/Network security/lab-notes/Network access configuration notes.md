@@ -15,8 +15,8 @@ IPADDRESS="$(az vm list-ip-addresses \
 --query "[].virtualMachine.network.publicIpAddresses[*].ipAddress" \
 --output tsv)"
 ```
-2. Ran into the error (see here), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
+2. Ran into the error [error.png](../screenshots/error.PNG), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
 
-After fixing my GRAVE error the command went through (see here)
+After fixing my GRAVE error the command went through [fix.png](../screenshots/fix.PNG)
 
 
