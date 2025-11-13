@@ -30,3 +30,30 @@ Why? Because I didnt create any network security roles yet.
 4. As an option I tried to access web server from the browser by running the command ```echo $IPADDRESS```.
 
 With that I could copy Virtual machines IP address and copy paste it into URL for the same result just visible from the browser [unreachable.png](../screenshots/unreachable.PNG) 
+
+So there are 2 ways to ping whether VMs web server is up or not.
+
+Task 2: Listing the current network security group rules
+
+To find out why the web server wasnt accessible I checked current NSG rules with ```az network nsg list```
+
+```bash
+az network nsg list \
+--resource-group "MinuVirtukas" \
+--query '[].name' \
+--output tsv
+```
+Ran into another error [error2.png](../screenshots/error2.PNG) 
+In the lab it is mentioned that every VM on Azure is associated with at least one network security group but what they failed to mention was that the name of it is not always defaulted to *my-vmNSG*.
+
+To fix it I ran
+```bash
+az network nsg list --resource-group MinuVirtukas --output table
+```
+
+
+
+
+
+
+
