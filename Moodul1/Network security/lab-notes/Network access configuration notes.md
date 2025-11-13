@@ -23,3 +23,10 @@ After fixing my GRAVE error the command went through [fix.png](../screenshots/fi
 ```bash
 curl --connect-timeout 5 http://$IPADDRESS
 ```
+We were met with the following error ```curl: (28) Connection timed out after 5001 milliseconds```
+
+Why? Because I didnt create any network security roles yet.
+
+4. As an option I tried to access web server from the browser by running the command ```echo $IPADDRESS```.
+
+With that I could copy Virtual machines IP address and copy paste it into URL for the same result just visible from the browser [unreachable.png](../screenshots/unreachable.PNG) 
