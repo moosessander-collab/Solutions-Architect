@@ -35,7 +35,7 @@ So there are 2 ways to ping whether VMs web server is up or not.
 
 Task 2: Listing the current network security group rules
 
-1. To find out why the web server wasnt accessible I checked current NSG rules with ```az network nsg list```
+1. Next I ran the command ```az network nsg list``` to see what NSG was associated with my VM
 
 ```bash
 az network nsg list \
@@ -43,7 +43,9 @@ az network nsg list \
 --query '[].name' \
 --output tsv
 ```
+Output ```minu-virtukasNSG``` 
 
+**Note** By default azure VMs have at least one NSG. If you leave the default name for vm its going to be ```my-vmNSG```. But that is not my case.
 
 
 
