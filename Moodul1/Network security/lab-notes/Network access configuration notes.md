@@ -104,6 +104,19 @@ Output: [nsgrule.png](../screenshots/nsgrule.PNG)
 
 Then I wanted to verify the configuration by using the same command I used in Task 2: [Command: NSG rule list](#command-nsg-rule-list)
 
+Which gave me the following output:
+
+```bash
+Name               Priority    Port    Access
+-----------------  ----------  ------  --------
+default-allow-ssh  1000        22      Allow
+allow-http         100         80      Allow
+```
+
+### Task 4: Access web server again
+
+1. First off needed to run the ```curl``` command I used in Task 1: Command: Connection testing [Command: Connection testing](#command-connection-testing)
+
 
 
 
