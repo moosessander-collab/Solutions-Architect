@@ -50,10 +50,11 @@ To fix it I ran the following command to see the name of mine:
 ```bash
 az network nsg list --resource-group MinuVirtukas --output table
 ```
-The result shocked me [nsg.png](../screenshots/nsg.PNG). Of course it was something that obvious in hinsight.
+The result shocked me: 
 
 [![nsg](../screenshots/nsg.PNG)](../screenshots/nsg.PNG)
 
+Of course it was something that obvious in hinsight.
 
 
 
