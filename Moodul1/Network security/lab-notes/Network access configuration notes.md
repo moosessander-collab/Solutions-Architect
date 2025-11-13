@@ -52,6 +52,7 @@ az network nsg list --resource-group MinuVirtukas --output table
 ```
 The result shocked me [nsg.png](../screenshots/nsg.PNG). Of course it was something that obvious in hinsight.
 
+[![nsg](../screenshots/nsg.PNG)](../screenshots/nsg.PNG)
 
 
 
