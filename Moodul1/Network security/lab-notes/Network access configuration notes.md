@@ -17,6 +17,6 @@ IPADDRESS="$(az vm list-ip-addresses \
 ```
 2. Ran into the error (see here), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
 
-After fixing my GRAVE error the command went thru (see here)
+After fixing my GRAVE error the command went through (see here)
 
 
