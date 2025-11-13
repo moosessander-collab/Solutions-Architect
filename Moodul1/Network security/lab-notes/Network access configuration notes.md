@@ -16,4 +16,5 @@ IPADDRESS="$(az vm list-ip-addresses \
 2. Ran into the error (see here), instead of ```--resource-group``` I miss spelled it in my haste to ```--resource-grp```
 
 After fixing my GRAVE error the command went thru (see here)
+
 **Note:** This exercise required me to use BASH version of cloud shell for some of the commands.
