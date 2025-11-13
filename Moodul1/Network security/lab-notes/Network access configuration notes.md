@@ -169,29 +169,50 @@ Output: ```virtualhermit```
 
 Then I needed to run command that opens up the SSH session to the VM as I tried before. See: [Command: Open SSH session to VM](#command-Open-SSH-session-to-VM)
 
-test
-dfs
-fd
-sd
-fd
-fd
-f
-f
-f
-f
-f
-f
-f
-f
-sdfafsaf
-f
-f
-asf
-as
-f
-af
-a
-fas
-f
-asf
+Was met with ```virtualhermit@20.251.205.43: Permission denied (publickey).``` Which means the connection did reach the VM but it rejected the login because it didnt find a matching public key for my user.
+
+Then I needed to retrieve SSH config from the VM including the public keys Azure had stored for authentication. 
+
+Why? Beacause it lets me verify which SSH key the VM expects so I can confirm whether my local private key matches it.
+
+### Command: SSH config retrieval
+```bash
+az vm show \
+--resource-group MinuVirtukas \
+--name minu-virtukas \
+--query "osProfile.linuxConfiguration.ssh"\
+--output tsv
+```
+[![Resource Group](../screenshots/sshret.PNG)](../screenshots/sshret.PNG)
+
+Next I needed to list all SSH keys stored in my local ```~/.ssh``` to see which keys I had available and compare them to public key configed on VM
+
+The only file in ```~/.ssh``` folder is ```known_hosts``` which indicates that i dont have any SSH keys paired locally and therefore cant authenticate to the vm using SSH login.
+
+So I created one with the following:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "azure-vm-key"
+```
+Output:
+[![Resource Group](../screenshots/passp.PNG)](../screenshots/passp.PNG)
+
+Since the VM is going to be deleted anyway I decided to leave the passphrase empty this time and just pressed ```Enter``` twice.
+
+Result:
+[![Resource Group](../screenshots/key.PNG)](../screenshots/key.PNG)
+
+Then I needed to make sure that virtualhermit could use this key with the following command:
+```bash
+az vm user update \
+--resource-group MinuVirtukas \
+--name minu-virtukas \
+--username virtualhermit \
+--ssh-key-value "$(cat ~/.ssh/id_ed25519.pub)"
+```
+
+Now that I was able to make sure virtualhermit can use the key we needed to open the SSH session again using the commandline from before. See [Command: Open SSH session to VM](#command-Open-SSH-session-to-VM)
+
+
+
 
