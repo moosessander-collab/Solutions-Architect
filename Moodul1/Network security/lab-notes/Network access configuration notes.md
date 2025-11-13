@@ -5,5 +5,5 @@ Goal: In this exercise I needed to configure network access to the Virtual machi
 
 Task 1: Accessing my web server
 
-For starters I need to access web server that I had installed prior to this exercise.
+1. For starters I need to access web server that I had installed prior to this exercise.
 Note! This exercise required me to use BASH version of cloud shell for some of the commands.
