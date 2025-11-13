@@ -117,6 +117,8 @@ allow-http         100         80      Allow
 
 1. First off needed to run the ```curl``` command I used in Task 1: Command: Connection testing [Command: Connection testing](#command-connection-testing)
 
+We get the desired output:
+[![Resource Group](../screenshots/welcome.PNG)](../screenshots/welcome.PNG)
 
 
 
